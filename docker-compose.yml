@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  cinema-app:
+    image: 'cinema-app:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - cinema-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://cinema-db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8080:8080"
+    restart: always
+
+  cinema-db:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    restart: always
