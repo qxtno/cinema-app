@@ -29,8 +29,6 @@ public class MovieService {
 
     public void delete(UUID movieId) {
         var movie = movieRepository.findById(movieId);
-        if (movie.isPresent()) {
-            movieRepository.delete(movie.get());
-        }
+        movie.ifPresent(movieRepository::delete);
     }
 }
