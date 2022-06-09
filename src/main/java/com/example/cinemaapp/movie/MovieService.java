@@ -3,6 +3,7 @@ package com.example.cinemaapp.movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,9 +15,7 @@ public class MovieService {
     private final MovieRepository movieRepository;
 
     public void saveAllMovies(String[] names) {
-        for (String name : names) {
-            movieRepository.save(new Movie(name));
-        }
+        Arrays.stream(names).forEach(name -> movieRepository.save(new Movie(name)));
     }
 
     public List<Movie> getAll() {

@@ -69,7 +69,7 @@ public class ScreeningService {
                     } catch (Exception e) {
                         return new ResponseEntity<>(
                                 new ScreeningResponseEntity(
-                                        "Operation cannot be performed on " + row + " " + place + " seat"),
+                                        "Operation cannot be performed on " + row + "" + place + " seat"),
                                 HttpStatus.BAD_REQUEST);
                     }
                 }
