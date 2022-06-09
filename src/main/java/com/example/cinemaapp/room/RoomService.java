@@ -41,4 +41,8 @@ public class RoomService {
     public Optional<Room> getRoom(UUID roomId) {
         return roomRepository.findById(roomId);
     }
+
+    public void saveRoom(Room room) {
+        roomRepository.save(room);
+    }
 }
