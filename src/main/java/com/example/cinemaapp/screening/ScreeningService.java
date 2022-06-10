@@ -38,10 +38,6 @@ public class ScreeningService {
         return screeningRepository.getScreeningsByMovieId(movieId);
     }
 
-    public Screening getScreeningByMovieId(UUID movieId) {
-        return screeningRepository.getScreeningByMovieId(movieId);
-    }
-
     public ResponseEntity<ScreeningResponseEntity> reservation(
             UUID screeningId,
             List<Room.SeatLocation> seatLocations,

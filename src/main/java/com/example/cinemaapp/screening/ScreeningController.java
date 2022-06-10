@@ -37,11 +37,6 @@ public class ScreeningController {
         return screeningService.getAllScreenings(movieId);
     }
 
-    @GetMapping("/movie")
-    public Screening getByMovieId(@RequestParam UUID movieId) {
-        return screeningService.getScreeningByMovieId(movieId);
-    }
-
     @GetMapping("/movie/seats")
     public List<Room.Seat> getSeats(@RequestParam UUID screeningId) {
         return screeningService.getSeats(screeningId);
